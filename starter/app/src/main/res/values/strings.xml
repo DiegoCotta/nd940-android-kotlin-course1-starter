@@ -11,4 +11,15 @@
     <string name="shoe_details">Shoe Details</string>
     <string name="list_of_shoes">List of Shoes</string>
     <string name="welcome">Welcome</string>
+    <string name="store_shoes">Store shoes</string>
+    <string name="go_to_instruction">Go to instruction</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="description">Description:</string>
+    <string name="shoe_size">Shoe size:</string>
+    <string name="company">Company:</string>
+    <string name="shoe_name">Shoe Name:</string>
+    <string name="how_use">HOW USE</string>
+    <string name="how_use_text">LOREM IPSUM adsfghasdhgflkashdfkjasdhfklajsdhfklahsdfkljhsdlkfhasdlk</string>
+    <string name="go_to_home">Go to Home</string>
 </resources>
