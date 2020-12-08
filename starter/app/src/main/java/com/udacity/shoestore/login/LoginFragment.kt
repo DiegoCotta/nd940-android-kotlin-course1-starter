@@ -2,6 +2,7 @@ package com.udacity.shoestore.login
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
@@ -12,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.LoginFragmentBinding
+
 
 class LoginFragment : Fragment() {
 
@@ -29,6 +31,8 @@ class LoginFragment : Fragment() {
             container,
             false
         )
+        setHasOptionsMenu(true);
+
 
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
@@ -87,7 +91,5 @@ class LoginFragment : Fragment() {
             )
         }
     }
-
-
 }
 

@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/login_Fragment"
         android:name="com.udacity.shoestore.login.LoginFragment"
-        tools:layout="@layout/login_fragment"
-        android:label="Login Fragment" >
+        android:label="@string/login"
+        tools:layout="@layout/login_fragment">
         <action
             android:id="@+id/action_login_Fragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment" />
@@ -17,8 +17,8 @@
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="com.udacity.shoestore.welcome.WelcomeFragment"
-        tools:layout="@layout/welcome_fragment"
-        android:label="WelcomeFragment" >
+        android:label="@string/welcome"
+        tools:layout="@layout/welcome_fragment">
         <action
             android:id="@+id/action_welcomeFragment_to_instructionFragment"
             app:destination="@id/instructionFragment"
@@ -28,7 +28,7 @@
     <fragment
         android:id="@+id/instructionFragment"
         android:name="com.udacity.shoestore.instruction.InstructionFragment"
-        android:label="InstructionFragment"
+        android:label="@string/instructions"
         tools:layout="@layout/instruction_fragment">
         <action
             android:id="@+id/action_instructionFragment_to_listShoesFragment"
@@ -39,6 +39,15 @@
     <fragment
         android:id="@+id/listShoesFragment"
         android:name="com.udacity.shoestore.shoes.ListShoesFragment"
-        android:label="list_shoes_fragment"
-        tools:layout="@layout/list_shoes_fragment" />
+        android:label="@string/list_of_shoes"
+        tools:layout="@layout/list_shoes_fragment">
+        <action
+            android:id="@+id/action_listShoesFragment_to_shoesDetailsFragment"
+            app:destination="@id/shoesDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoesDetailsFragment"
+        android:name="com.udacity.shoestore.shoes.ShoesDetailsFragment"
+        android:label="@string/shoe_details"
+        tools:layout="@layout/shoes_details_fragment" />
 </navigation>
