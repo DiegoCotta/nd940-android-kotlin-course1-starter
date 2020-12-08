@@ -20,6 +20,10 @@
     <string name="company">Company:</string>
     <string name="shoe_name">Shoe Name:</string>
     <string name="how_use">HOW USE</string>
-    <string name="how_use_text">LOREM IPSUM adsfghasdhgflkashdfkjasdhfklajsdhfklahsdfkljhsdlkfhasdlk</string>
+    <string name="how_use_text">"1. The main screen will show all registered shoes.\n\n
+2. To add a new shoe, simply go to the +1 floating button."</string>
     <string name="go_to_home">Go to Home</string>
+    <string name="inputs_error">All fields must be filled</string>
+    <string name="enter_email">Enter your e-mail</string>
+    <string name="enter_password">Enter your password</string>
 </resources>

@@ -67,9 +67,17 @@ class LoginFragment : Fragment() {
     private fun setupClickButtons() {
         binding.createButton.setOnClickListener {
             if (binding.userEmail.text.isBlank()) {
-                Toast.makeText(requireContext(), "Enter your e-mail", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.enter_email),
+                    Toast.LENGTH_SHORT
+                ).show()
             } else if (binding.userPassword.text.isBlank()) {
-                Toast.makeText(requireContext(), "Enter your password", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.enter_password),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
 
             viewModel.createUser(
@@ -80,9 +88,17 @@ class LoginFragment : Fragment() {
 
         binding.loginButton.setOnClickListener {
             if (binding.userEmail.text.isBlank()) {
-                Toast.makeText(requireContext(), "Enter your e-mail", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.enter_email),
+                    Toast.LENGTH_SHORT
+                ).show()
             } else if (binding.userPassword.text.isBlank()) {
-                Toast.makeText(requireContext(), "Enter your password", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.enter_password),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
 
             viewModel.login(

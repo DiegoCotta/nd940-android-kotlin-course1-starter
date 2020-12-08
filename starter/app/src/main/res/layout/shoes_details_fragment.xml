@@ -23,13 +23,12 @@
 
                 <TextView
                     android:id="@+id/name_label"
+                    style="@style/Label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/default_margin"
                     android:layout_marginTop="@dimen/big_margin"
                     android:text="@string/shoe_name"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,13 +48,12 @@
 
                 <TextView
                     android:id="@+id/company_label"
+                    style="@style/Label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/default_margin"
                     android:layout_marginTop="@dimen/big_margin"
                     android:text="@string/company"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -75,13 +73,12 @@
 
                 <TextView
                     android:id="@+id/size_label"
+                    style="@style/Label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/default_margin"
                     android:layout_marginTop="@dimen/big_margin"
                     android:text="@string/shoe_size"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -101,13 +98,12 @@
 
                 <TextView
                     android:id="@+id/description_label"
+                    style="@style/Label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/default_margin"
                     android:layout_marginTop="@dimen/big_margin"
                     android:text="@string/description"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -118,6 +114,7 @@
                     android:layout_marginStart="@dimen/default_margin"
                     android:layout_marginTop="@dimen/default_margin"
                     android:layout_marginEnd="@dimen/default_margin"
+                    android:imeOptions="actionDone"
                     android:inputType="textPersonName"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -128,13 +125,11 @@
 
         <Button
             android:id="@+id/cancel_button"
+            style="@style/ButtonAccent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/default_margin"
-            android:background="@color/colorAccent"
-            android:imeOptions="actionDone"
             android:text="@string/cancel"
-            android:textColor="@android:color/white"
             app:layout_constraintBottom_toBottomOf="@+id/save_button"
             app:layout_constraintEnd_toStartOf="@+id/save_button"
             app:layout_constraintHorizontal_bias="0.5"
@@ -142,14 +137,13 @@
 
         <Button
             android:id="@+id/save_button"
+            style="@style/ButtonPrimary"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/default_margin"
             android:layout_marginEnd="@dimen/default_margin"
             android:layout_marginBottom="@dimen/big_margin"
-            android:background="@color/colorPrimaryDark"
             android:text="@string/save"
-            android:textColor="@android:color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

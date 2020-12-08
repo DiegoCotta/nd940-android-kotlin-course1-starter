@@ -51,7 +51,7 @@ class ShoesDetailsFragment : Fragment() {
             if (binding.companyInput.text.isBlank() && binding.descriptionInput.text.isBlank()
                 && binding.nameInput.text.isBlank() && binding.sizeInput.text.isBlank()
             ) {
-                Toast.makeText(requireContext(), "All fields must be filled", Toast.LENGTH_SHORT)
+                Toast.makeText(requireContext(), getString(R.string.inputs_error), Toast.LENGTH_SHORT)
                     .show()
             } else {
                 findNavController().navigate(
