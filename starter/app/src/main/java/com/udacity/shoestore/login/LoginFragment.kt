@@ -34,7 +34,7 @@ class LoginFragment : Fragment() {
         setHasOptionsMenu(true);
 
 
-        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(LoginViewModel::class.java)
 
         setupObservables()
         setupClickButtons()

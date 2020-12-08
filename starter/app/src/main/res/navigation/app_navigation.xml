@@ -33,8 +33,22 @@
         <action
             android:id="@+id/action_instructionFragment_to_listShoesFragment"
             app:destination="@id/listShoesFragment"
+            app:launchSingleTop="true"
             app:popUpTo="@id/login_Fragment"
-            app:popUpToInclusive="false" />
+            app:popUpToInclusive="false">
+            <argument
+                android:name="shoe_name"
+                app:nullable="true" />
+            <argument
+                android:name="company"
+                app:nullable="true" />
+            <argument
+                android:name="description"
+                app:nullable="true" />
+            <argument
+                android:name="size"
+                android:defaultValue="0.0" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/listShoesFragment"
@@ -43,11 +57,47 @@
         tools:layout="@layout/list_shoes_fragment">
         <action
             android:id="@+id/action_listShoesFragment_to_shoesDetailsFragment"
-            app:destination="@id/shoesDetailsFragment" />
+            app:destination="@id/shoesDetailsFragment"
+            app:launchSingleTop="true"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="shoe_name"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="size"
+            app:argType="float" />
+        <argument
+            android:name="company"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="description"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/shoesDetailsFragment"
         android:name="com.udacity.shoestore.shoes.ShoesDetailsFragment"
         android:label="@string/shoe_details"
-        tools:layout="@layout/shoes_details_fragment" />
+        tools:layout="@layout/shoes_details_fragment">
+        <action
+            android:id="@+id/action_shoesDetailsFragment_to_listShoesFragment"
+            app:destination="@id/listShoesFragment"
+            app:popUpTo="@id/listShoesFragment"
+            app:popUpToInclusive="true">
+            <argument
+                android:name="shoe_name"
+                app:nullable="true" />
+            <argument
+                android:name="company"
+                app:nullable="true" />
+            <argument
+                android:name="description"
+                app:nullable="true" />
+            <argument
+                android:name="size"
+                android:defaultValue="0.0" />
+        </action>
+    </fragment>
 </navigation>

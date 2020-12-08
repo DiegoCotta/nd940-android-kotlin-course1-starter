@@ -29,7 +29,14 @@ class InstructionFragment : Fragment() {
         )
 
         binding.nextButton.setOnClickListener {
-            findNavController().navigate(InstructionFragmentDirections.actionInstructionFragmentToListShoesFragment())
+            findNavController().navigate(
+                InstructionFragmentDirections.actionInstructionFragmentToListShoesFragment(
+                    null,
+                    null,
+                    null,
+                    0f
+                )
+            )
         }
 
         return binding.root
