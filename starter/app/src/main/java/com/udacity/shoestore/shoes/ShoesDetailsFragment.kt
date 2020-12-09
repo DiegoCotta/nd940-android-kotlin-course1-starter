@@ -18,7 +18,7 @@ class ShoesDetailsFragment : Fragment() {
 
     private lateinit var binding: ShoesDetailsFragmentBinding
 
-    private val shoe = Shoe("",0.0,"","")
+    private val shoe = Shoe("", 0.0, "", "")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +33,9 @@ class ShoesDetailsFragment : Fragment() {
         )
 
         setupClickButtons()
+
+        binding.shoe = shoe
+        binding.lifecycleOwner = this
 
         return binding.root
     }
@@ -50,18 +53,22 @@ class ShoesDetailsFragment : Fragment() {
         }
 
         binding.saveButton.setOnClickListener {
-            if (binding.companyInput.text.isBlank() && binding.descriptionInput.text.isBlank()
-                && binding.nameInput.text.isBlank() && binding.sizeInput.text.isBlank()
+            if (shoe.name.isBlank() && shoe.company.isBlank()
+                && shoe.size == 0.0 && shoe.description.isBlank()
             ) {
-                Toast.makeText(requireContext(), getString(R.string.inputs_error), Toast.LENGTH_SHORT)
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.inputs_error),
+                    Toast.LENGTH_SHORT
+                )
                     .show()
             } else {
                 findNavController().navigate(
                     ShoesDetailsFragmentDirections.actionShoesDetailsFragmentToListShoesFragment(
-                        binding.nameInput.text.toString(),
-                        binding.companyInput.text.toString(),
-                        binding.descriptionInput.text.toString(),
-                        binding.sizeInput.text.toString().toFloat()
+                        shoe.name,
+                        shoe.company,
+                        shoe.description,
+                        shoe.size.toFloat()
                     )
                 )
             }
