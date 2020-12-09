@@ -1,9 +1,7 @@
 package com.udacity.shoestore.shoes
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.EditText
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
@@ -12,7 +10,9 @@ import androidx.databinding.InverseBindingAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ItemShoeBinding
 import com.udacity.shoestore.databinding.ListShoesFragmentBinding
@@ -36,9 +36,11 @@ class ListShoesFragment : Fragment() {
             false
         )
 
+        //create viewModel on activity scope
         viewModel = ViewModelProvider(requireActivity()).get(ListShoesViewModel::class.java)
 
         setupObservables()
+        setHasOptionsMenu(true)
 
         return binding.root
     }
@@ -69,7 +71,6 @@ class ListShoesFragment : Fragment() {
                 )
             )
         }
-
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -77,6 +78,23 @@ class ListShoesFragment : Fragment() {
         binding.addShoe.setOnClickListener {
             findNavController().navigate(ListShoesFragmentDirections.actionListShoesFragmentToShoesDetailsFragment())
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.app_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.logout -> {
+                findNavController().popBackStack()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+
     }
 
 }

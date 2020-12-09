@@ -26,4 +26,5 @@
     <string name="inputs_error">All fields must be filled</string>
     <string name="enter_email">Enter your e-mail</string>
     <string name="enter_password">Enter your password</string>
+    <string name="logout">Logout</string>
 </resources>
