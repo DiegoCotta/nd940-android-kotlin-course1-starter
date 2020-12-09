@@ -4,7 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.TextView
+import androidx.appcompat.widget.AppCompatEditText
+import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
+import androidx.databinding.InverseBindingAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -12,8 +17,8 @@ import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ItemShoeBinding
 import com.udacity.shoestore.databinding.ListShoesFragmentBinding
-import com.udacity.shoestore.login.LoginViewModel
 import com.udacity.shoestore.models.Shoe
+
 
 class ListShoesFragment : Fragment() {
 
@@ -75,4 +80,17 @@ class ListShoesFragment : Fragment() {
         }
     }
 
+}
+
+@BindingAdapter("android:text")
+fun bindDoubleInText(tv: EditText, value: Double) {
+    tv.setText(value.toString())
+    // Set the cursor to the end of the text
+    tv.setSelection(tv.text!!.length)
+}
+
+@InverseBindingAdapter(attribute = "android:text")
+fun getDoubleFromBinding(view: TextView): Double {
+    val string = view.text.toString()
+    return if (string.isEmpty()) 0.0 else string.toDouble()
 }

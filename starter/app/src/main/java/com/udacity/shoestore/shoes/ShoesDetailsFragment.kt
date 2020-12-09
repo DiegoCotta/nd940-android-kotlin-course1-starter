@@ -18,6 +18,8 @@ class ShoesDetailsFragment : Fragment() {
 
     private lateinit var binding: ShoesDetailsFragmentBinding
 
+    private val shoe = Shoe("",0.0,"","")
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

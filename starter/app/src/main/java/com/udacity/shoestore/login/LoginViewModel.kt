@@ -29,8 +29,13 @@ class LoginViewModel : ViewModel() {
     }
 
     fun createUser(email: String, password: String) {
-        registredUserList.add(User(email, password))
-        _eventNewUser.value = true
+        val user = registredUserList.singleOrNull() { it.email == email && it.password == password }
+        if (user == null) {
+            registredUserList.add(User(email, password))
+            _eventNewUser.value = true
+        } else {
+            _eventLoginError.value = "E-mail already registered"
+        }
     }
 
     fun createUserDone() {
@@ -38,6 +43,7 @@ class LoginViewModel : ViewModel() {
     }
 
     fun login(email: String, password: String) {
+        //to login you have create user before
         val user = registredUserList.singleOrNull() { it.email == email }
         when {
             user == null -> {
