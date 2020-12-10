@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var listViewModel: ListShoesViewModel
     private lateinit var loginViewModel: LoginViewModel
-    private lateinit var appBarConfiguration: AppBarConfiguration
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding =
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
                     onBackPressed()
                     true
                 }.build()
-
+            navController.setGraph(R.navigation.app_navigation)
             setSupportActionBar(binding.toolbar)
             binding.toolbar.setupWithNavController(it, appBarConfiguration)
 

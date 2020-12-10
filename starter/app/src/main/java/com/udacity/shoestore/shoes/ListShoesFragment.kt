@@ -8,6 +8,7 @@ import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.InverseBindingAdapter
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -21,8 +22,8 @@ import com.udacity.shoestore.models.Shoe
 
 class ListShoesFragment : Fragment() {
 
-    private lateinit var viewModel: ListShoesViewModel
     private lateinit var binding: ListShoesFragmentBinding
+    private val viewModel: ListShoesViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,9 +36,6 @@ class ListShoesFragment : Fragment() {
             container,
             false
         )
-
-        //create viewModel on activity scope
-        viewModel = ViewModelProvider(requireActivity()).get(ListShoesViewModel::class.java)
 
         setupObservables()
         setHasOptionsMenu(true)
@@ -58,21 +56,6 @@ class ListShoesFragment : Fragment() {
         })
     }
 
-    override fun onResume() {
-        super.onResume()
-        val args = ListShoesFragmentArgs.fromBundle(requireArguments())
-        if (args.shoeName != null && args.company != null && args.description != null) {
-            viewModel.addOnList(
-                Shoe(
-                    args.shoeName,
-                    args.size.toDouble(),
-                    args.company,
-                    args.description
-                )
-            )
-        }
-    }
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         binding.addShoe.setOnClickListener {
@@ -89,7 +72,7 @@ class ListShoesFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.logout -> {
-                findNavController().popBackStack()
+                findNavController().navigateUp()
                 true
             }
             else -> super.onOptionsItemSelected(item)

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
@@ -17,6 +18,7 @@ import com.udacity.shoestore.models.Shoe
 class ShoesDetailsFragment : Fragment() {
 
     private lateinit var binding: ShoesDetailsFragmentBinding
+    private val viewModel: ListShoesViewModel by activityViewModels()
 
     private val shoe = Shoe("", 0.0, "", "")
 
@@ -43,12 +45,7 @@ class ShoesDetailsFragment : Fragment() {
     private fun setupClickButtons() {
         binding.cancelButton.setOnClickListener {
             findNavController().navigate(
-                ShoesDetailsFragmentDirections.actionShoesDetailsFragmentToListShoesFragment(
-                    null,
-                    null,
-                    null,
-                    0f
-                )
+                ListShoesFragmentDirections.actionListShoesFragmentToShoesDetailsFragment()
             )
         }
 
@@ -63,14 +60,8 @@ class ShoesDetailsFragment : Fragment() {
                 )
                     .show()
             } else {
-                findNavController().navigate(
-                    ShoesDetailsFragmentDirections.actionShoesDetailsFragmentToListShoesFragment(
-                        shoe.name,
-                        shoe.company,
-                        shoe.description,
-                        shoe.size.toFloat()
-                    )
-                )
+                viewModel.addOnList(shoe)
+                findNavController().navigateUp()
             }
         }
     }
